@@ -96,7 +96,7 @@ def main():
                 case 2:
                     delete_mers()
                 case 3:
-                    print("fdfdf")
+                    pass
                 case 4:
                     mercedes_Benz_print(text="Все машины: ", elements=mercedes_Benz)
                 case 5:
@@ -105,3 +105,4 @@ def main():
 if __name__ == "__main__":
     main()
 
+#ошибки редактирование сортировка вывод
