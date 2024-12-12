@@ -45,7 +45,7 @@ def delete_mers():#Удаление
             print("Удаление прошло успешно")
             break
 def editing_mers():#Редактирование
-    print("Релактирование данных")
+    print("Редактирование данных")
     print("======================================")
     mercedes_Benz_print(text="Все машины: ", elements=mercedes_Benz)
     print("======================================")
