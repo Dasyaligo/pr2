@@ -29,14 +29,14 @@ users = [
         'role': 'admin'
     }
 ]
-def add_mers():
+def add_mers(): #Добавление
     print("Напишите данные")
     stamp = input()
     price = int(input())
     new_car = {"Stamp": stamp, "price": price}
     mercedes_Benz.append(new_car)
 
-def delete_mers():
+def delete_mers():#Удаление
     print("Удаление данных")
     stamp = input()
     for i in mercedes_Benz:
@@ -44,6 +44,21 @@ def delete_mers():
             mercedes_Benz.remove(i)
             print("Удаление прошло успешно")
             break
+def editing_mers():#Редактирование
+    print("Релактирование данных")
+    print("======================================")
+    mercedes_Benz_print(text="Все машины: ", elements=mercedes_Benz)
+    print("======================================")
+    old_stamp = input("Введите модель: ")
+    for i in range(len(mercedes_Benz)+1):
+        if mercedes_Benz[i]["Stamp"] == old_stamp:
+            new_stamp = input("Введите новую модель: ")
+            price = int(input("Введите новую цену: "))
+            mercedes_Benz[i]["Stamp"] = new_stamp
+            mercedes_Benz[i]["price"] = price
+            print("Изменение прошло успешно")
+            break
+
 
 
 def mercedes_Benz_print(text, elements):
@@ -55,7 +70,7 @@ def mercedes_Benz_print(text, elements):
             if key == 'price':
                 print()
 
-def auth(username,password):
+def auth(username,password): #Регистрация
     for i in users:
         if i["username"] == username and i["password"] == password:
             print("Авторизация прошла успешно")
@@ -63,16 +78,17 @@ def auth(username,password):
     return False
 
 
-def main():
+
+def main(): #Начало
     print("Добро пожаловать в Автосалон, пройдите авторизацию")
     user_name = input("Введите логин: ")
     password =  input("Введите пароль: ")
-    role = auth( user_name, password)
+    role = auth(user_name, password)
 
     if role == "user":
         while True:
             try:
-                action = int(input("Выберите действие: \n1. Посмотреть машины.\n2. Купить.\n3. Отсортировать.\n4. Отфильтровать.\n5.Выйти."))
+                action = int(input("Выберите действие: \n1. Посмотреть машины.\n2. Купить.\n3. Отсортировать.\n4. Отфильтровать.\n5.Выйти.\n"))
                 match action:
                     case 1:
                         pass
@@ -83,26 +99,31 @@ def main():
                     case 4:
                         pass
                     case 5:
-                        pass
+                        exit()
             except Exception as e:
                 print(f" Ошибка: {e}")
 
     elif role == "admin":
         while True:
-            action = int(input("Выберите действие: \n1. Добавить машину.\n2. Удалить.\n3. Редактировать.\n4. Просмотр.\n5.Выйти. "))
-            match action:
-                case 1:
-                    add_mers()
-                case 2:
-                    delete_mers()
-                case 3:
-                    pass
-                case 4:
-                    mercedes_Benz_print(text="Все машины: ", elements=mercedes_Benz)
-                case 5:
-                    exit()
+            try:
+                action = int(input("Выберите действие: \n1. Добавить машину.\n2. Удалить.\n3. Редактировать.\n4. Просмотр.\n5.Выйти.\n"))
+                match action:
+                    case 1:
+                        add_mers()
+                    case 2:
+                        delete_mers()
+                    case 3:
+                        editing_mers()
+                    case 4:
+                        mercedes_Benz_print(text="Все машины: ", elements=mercedes_Benz)
+                    case 5:
+                        exit()
+            except Exception as e:
+                print(f" Ошибка: {e}")
+
+
 
 if __name__ == "__main__":
     main()
 
-#ошибки редактирование сортировка вывод
+#ошибки  сортировка вывод
