@@ -96,7 +96,7 @@ def main():
                 case 2:
                     delete_mers()
                 case 3:
-                    pass
+                    print("fdfdf")
                 case 4:
                     mercedes_Benz_print(text="Все машины: ", elements=mercedes_Benz)
                 case 5:
