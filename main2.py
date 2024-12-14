@@ -44,6 +44,7 @@ def delete_mers():#Удаление
             mercedes_Benz.remove(i)
             print("Удаление прошло успешно")
             break
+
 def editing_mers():#Редактирование
     print("Редактирование данных")
     print("======================================")
@@ -60,22 +61,16 @@ def editing_mers():#Редактирование
             break
 
 
-
-def mercedes_Benz_print(text, elements):
-    print(text)
-    for i, element in enumerate(elements, start=1):
-        print(f"{i}.", end="")
-        for key, value in element.items():
-            print(f"{key}:{value}", end=" ")
-            if key == 'price':
-                print()
-
 def auth(username,password): #Регистрация
     for i in users:
         if i["username"] == username and i["password"] == password:
             print("Авторизация прошла успешно")
             return i["role"]
     return False
+
+def sort_mesr(mercedes_Benz):
+
+
 
 
 
@@ -91,7 +86,7 @@ def main(): #Начало
                 action = int(input("Выберите действие: \n1. Посмотреть машины.\n2. Купить.\n3. Отсортировать.\n4. Отфильтровать.\n5.Выйти.\n"))
                 match action:
                     case 1:
-                        pass
+                        mercedes_Benz_print(text="Все машины: ", elements=mercedes_Benz)
                     case 2:
                         pass
                     case 3:
@@ -126,4 +121,3 @@ def main(): #Начало
 if __name__ == "__main__":
     main()
 
-#ошибки  сортировка вывод
